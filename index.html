@@ -11,17 +11,24 @@
     <section class="intro">
       <div class="wrapper">
         <form>
-          <input type="text">
-          <label for=""></label>
-          <input type="text">
+          <label for="user-name-form">What's your name?</label> <input type="text" class="user-name-form" id="user-name-form" placeholder="eg. Cher">
+          <br>
+          <label for="user-question-form">Your question:</label>
+          <textarea name="user-question-form" id="user-question-form" class="user-question-form" placeholder="Will I totally marry Jonathan Taylor Thomas?"
+  cols="30" rows="5"></textarea>
+  <br>
+<button class="submit submit-intro" type="submit">Submit</button>
         </form>
       </div>
     </section>
     <section class="game">
       <div class="wrapper">
-
+        <div class="greeting">
+        </div>
       </div>
     </section>
   </main>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 </html>

@@ -1,13 +1,150 @@
+//document ready - go!
+$(function () {
+
+//not related to the game
+// $('textarea').autoResize();
+
+
+
+
+//game related 
+
+const colours = [
+  {
+    colorName: `magenta`,
+    evenNumber: false,
+    oddNumber: true,
+    hex: `#e94e9c`,
+    colorClass: `.color-magenta`
+  },
+  {
+    colorName: `green`,
+    evenNumber: false,
+    oddNumber: true,
+    hex: `#d9e01e`,
+    colorClass: `.color-green`
+  },
+ {
+    colorName: `teal`,
+    evenNumber: true,
+    oddNumber: false,
+    hex: `#54c4c6`,
+    colorClass: `.color-teal`
+  },
+  {
+    colorName: `purple`,
+    evenNumber: true,
+    oddNumber: false,
+    hex: `#977dba`,
+    colorClass: `.color-purple`
+  },
+]
+
+const array1 = [
+  {
+    numberName: 1,
+    evenNumber: false,
+    oddNumber: true,
+    fortune: `Never gonna happen.`,
+  },
+  {
+    numberName: 2,
+    evenNumber: true,
+    oddNumber: false,
+    fortune: `Yes!` ,
+  },
+  {
+    numberName: 5,
+    evenNumber: false,
+    oddNumber: true,
+    fortune: `As if!`,
+  },
+  {
+    numberName: 6,
+    evenNumber: true,
+    oddNumber: false,
+    fortune: 'Duh!',
+  }
+]
+
+const array2 = [
+  {
+    numberName: 3,
+    evenNumber: false,
+    oddNumber: true,
+    fortune: `Definitely........NOT!`,
+  },
+  {
+    numberName: 4,
+    evenNumber: true,
+    oddNumber: false,
+    fortune: `Take a chill pill. Ask again later.`,
+  },
+  {
+    numberName: 7,
+    evenNumber: false,
+    oddNumber: true,
+    fortune: `You go girl! Yes!`,
+  },
+  {
+    numberName: 8,
+    evenNumber: true,
+    oddNumber: false,
+    fortune: `All that and a bag of chips.`,
+  }
+]
+
 //user enters their name into a field labled "what is your name?"
 //user enters a question into a field labled "as a question that can be answered by yes or no"
 //user presses "submit".
-//when submit is pressed, values for both of the above variables are stored and the submit button pushes the user down to a new section of the page.
-//the users question is repeted back to them in the form of a string at the top of the section: `${userName], you asked '${userQuestion}'.`
+//when submit is pressed, values for both of the above variables are stored
+
+$('form').on('submit', function(event){
+  event.preventDefault();
+  // console.log('it worked');
+
+  //storing value for the name entered by the user
+  let userName = $('.user-name-form').val();
+  // console.log(userName);
+
+  //storing balue for the question entered by the user
+  let userQuestion = $('.user-question-form').val();
+  // console.log(userQuestion);
+
+  //the users question is repeted back to them in the form of a string at the top of the section
+  // turn the user inputs into into html
+  const userNameHtml = `<h2 class="user-name">${userName}, you asked: </h2>`;
+  const userQuestionHtml = `<h2 class="user-question">${userQuestion}</h2>`;
+
+  //put it in the html on the page
+  $('.greeting').append(userNameHtml);
+  $('.greeting').append(userQuestionHtml);
+
+}); //these brackets close the form.on(submit) event
+
+
+
+//the submit button pushes the user down to a new section of the page.
+//WILL ADD LATER.
+
+
 //the paperfortune teller appears. the user will be presented with three rounds of options to narrow down their fortune.
-//for the first round, the user is presented with a choice of four colors to choose from. user must click on the swatch of one of the four colours to select it.
+//for the first round, the user is presented with a choice of four colors to choose from.
+//user must click on the swatch of one of the four colours to select it.
+
+
+    // put all of the colors into buttons on the page
+    colours.forEach((color) => {
+      $('.movieGenres').append(`<button class="color-swatch"></button>`)
+    });
+
+
+
+
+
 //the character length of the colour selected indicates how many times the paper fortune teller opens and closes - alternating the following arrays 
-    // - array1: [1,2,5,6]
-    // - array2: [3,4,7,8]
+// - array1: [1,2,5,6]
+// - array2: [3,4,7,8]
 //the fortune teller always starts with array 1. If the character length of the colour is odd, the user will be presented with array2.
 // If the character length of the colour is even, the user will be presented with array1.
 //the user selects a number from the array they are presented with. the paper fortune teller then alternates arrays as many times as the number selected.
@@ -19,18 +156,7 @@
 
 
 
-const colours = [
-  magenta,
-  green,
-  teal {
-    evenNumber: true,
-    oddNumber: false,
-    hex: `#977dba`,
-  },
-  purple: {
-    evenNumber: true,
-    oddNumber: false,
-    hex: `#977dba`,
-  }
 
-]
+
+
+}); //these brackets belong to the document ready function.
