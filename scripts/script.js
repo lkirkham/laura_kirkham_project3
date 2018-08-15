@@ -35,52 +35,68 @@ $(function () {
 
   const array1 = [{
       numberName: 1,
-      evenNumber: false,
-      oddNumber: true,
       fortune: `Never gonna happen.`,
     },
     {
       numberName: 2,
-      evenNumber: true,
-      oddNumber: false,
       fortune: `Yes!`,
     },
     {
       numberName: 5,
-      evenNumber: false,
-      oddNumber: true,
       fortune: `As if!`,
     },
     {
       numberName: 6,
-      evenNumber: true,
-      oddNumber: false,
       fortune: 'Duh!',
     }
   ]
 
   const array2 = [{
       numberName: 3,
-      evenNumber: false,
-      oddNumber: true,
       fortune: `Definitely........NOT!`,
     },
     {
       numberName: 4,
-      evenNumber: true,
-      oddNumber: false,
       fortune: `Take a chill pill. Ask again later.`,
     },
     {
       numberName: 7,
-      evenNumber: false,
-      oddNumber: true,
       fortune: `You go girl! Yes!`,
     },
     {
       numberName: 8,
-      evenNumber: true,
-      oddNumber: false,
+      fortune: `All that and a bag of chips.`,
+    }
+  ]
+
+  const combinedArray = [{
+      numberName: 1,
+      fortune: `Never gonna happen.`,
+    },
+    {
+      numberName: 2,
+      fortune: `Yes!`,
+    },
+    {
+      numberName: 3,
+      fortune: `Definitely........NOT!`,
+    }, {
+      numberName: 4,
+      fortune: `Take a chill pill. Ask again later.`,
+    },
+    {
+      numberName: 5,
+      fortune: `As if!`,
+    }, {
+      numberName: 6,
+      fortune: 'Duh!',
+    },
+    {
+      numberName: 7,
+      fortune: `You go girl! Yes!`,
+    },
+    {
+      numberName: 8,
       fortune: `All that and a bag of chips.`,
     }
   ]
@@ -124,14 +140,14 @@ $(function () {
       $('.greeting').append(userNameHtml);
       $('.greeting').append(userQuestionHtml);
       $('.colour-selection').append(`<h3 class="instructions">First, select a colour:</h3>`);
-    
+
       createColouredDots();
 
     }); //these brackets close the form.on(submit) event
   } //this bracket closes the getNameAndQuestion function
 
   //run the getNameAndQuestion function
-  getNameAndQuestion();
+    getNameAndQuestion();
 
   //the submit button pushes the user down to a new section of the page.
   //WILL ADD LATER.
@@ -140,10 +156,6 @@ $(function () {
   //the paperfortune teller appears. the user will be presented with three rounds of options to narrow down their fortune.
   //for the first round, the user is presented with a choice of four colors to choose from.
 
-  //run the colored dots creator function.
-  // createColouredDots();
-
-  // let selectedColour = "not set by user yet";
 
   const selectedColourChoice = function () {
     //user must click on the swatch of one of the four colours to select it.
@@ -220,28 +232,81 @@ $(function () {
   //if the number is even, show the same array. If the number is odd, show the other array.
   const showSecondRoundOfArrays = function (userFirstNumberString) {
     // convert the string to a number so it can be evaluated
-      let userFirstNumber = parseInt(userFirstNumberString);
-      // console.log(userFirstNumber);
-      if (userFirstNumber === 1 || userFirstNumber === 5 || userFirstNumber === 4 || userFirstNumber === 8) {
-          console.log(`you're going to see array2`);
-          showArray = array2.forEach((item) => {
-            $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
-          })
-      } else {
-        //show array1
-        console.log(`you're going to see array1`)
-        showArray = array1.forEach((item) => {
-              $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
+    let userFirstNumber = parseInt(userFirstNumberString);
+    // console.log(userFirstNumber);
+    //show instructions
+    $('.second-array-selection').append(`<h3 class="instructions">Pick a final number:</h3>`);
+    //show second round of arrays based on conditions met.
+    if (userFirstNumber === 1 || userFirstNumber === 5 || userFirstNumber === 4 || userFirstNumber === 8) {
+      console.log(`you're going to see array2`);
+      showArray = array2.forEach((item) => {
+        $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
       })
+    } else {
+      //show array1
+      console.log(`you're going to see array1`)
+      showArray = array1.forEach((item) => {
+        $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
+      })
+    }
   }
-}
+
+  const selectedSecondNumberChoice = function () {
+    //user must click on the number to select it.
+    $('.second-array-selection').on('click', '.second-array', function () {
+      //store the users choice in a variable that holds the number's value
+      let selectedSecondNumber = $(this.innerHTML);
+      selectedSecondNumber = selectedSecondNumber.selector;
+      //verify selectedSecondNumber picked up the innerHTML value by logging it to the console.
+      console.log(selectedSecondNumber);
+      //run function to display fortune
+      $('.second-array-selection').hide();
+      displayFortune(selectedSecondNumber);
+      //hide second number array once selection has been made.
+    })
+  };
+  selectedSecondNumberChoice();
+
+  const displayFortune = function (finalSelection) {
+    //verify that the selectedSecondNUmber variable has been passed as "finalSelection"
+    console.log(`the final selected number is ${finalSelection}`);
+    if (finalSelection == 1) {
+      console.log(combinedArray[0].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[0].fortune}</h3>`);
+
+    } else if (finalSelection == "2") {
+      console.log(combinedArray[1].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[1].fortune}</h3>`);
+
+    } else if (finalSelection == "3") {
+      console.log(combinedArray[2].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[2].fortune}</h3>`);
+
+    } else if (finalSelection == "4") {
+      console.log(combinedArray[3].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[3].fortune}</h3>`);
+
+    } else if (finalSelection == "5") {
+      console.log(combinedArray[4].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[4].fortune}</h3>`);
+
+    } else if (finalSelection == "6") {
+      console.log(combinedArray[5].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[5].fortune}</h3>`);
+
+    } else if (finalSelection == "7") {
+      console.log(combinedArray[6].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[6].fortune}</h3>`);
+
+    } else {
+      console.log(combinedArray[7].fortune);
+      $('.your-fortune').append(`<h3 class="fortune">${combinedArray[7].fortune}</h3>`);
+    } //this bracket belongs to the  final else 
+
+  }; //this bracket belongs to the displayFortune function
 
 
 
-  //if starting on array1 and the selected number is even, present array1 again. if starting on array1 and the selected number is off, present array 2.
-  //if starting on array2 and the selected number is even, present array2 again. if starting on array1 and the selected number is off, present array 1.
-  //user selects a number from the presented array. this number retrieves the property "answer" associated with it and returns it to the user.
-  //The user is presented with the answer beneath their question.
   //At the bottom of the game there is a button called "play again" which clears the selections, brings the user back to the top of the page and restarts the game.
 
 
