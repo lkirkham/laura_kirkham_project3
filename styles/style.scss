@@ -1,5 +1,24 @@
 @import "partials/setup";
 
+.wrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:0 auto;
+  width:1080px;
+}
+
+.intro {
+  height:50vh;
+  // background-image: url('../assets/bg-pattern-small.jpg');
+  // background-repeat: repeat;
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+}
+
 .colour-selection{
 display:flex;
 }

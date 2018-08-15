@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,29 @@
   <title>Cootie Catcher</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
+  <header>
+    <h1>Cootie Catcher</h1>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odit quis veritatis ad voluptas voluptatem quo vitae,
+      quibusdam quisquam laborum numquam doloribus, porro eius! Laborum consequuntur iusto mollitia quam impedit!
+    </p>
+  </header>
   <main>
     <section class="intro">
       <div class="wrapper">
         <form>
-          <label for="user-name-form">What's your name?</label> <input type="text" class="user-name-form" id="user-name-form" placeholder="eg. Cher">
-          <br>
-          <label for="user-question-form">Your question:</label>
-          <textarea name="user-question-form" id="user-question-form" class="user-question-form" placeholder="Will I totally marry Jonathan Taylor Thomas?"
-  cols="30" rows="5"></textarea>
-  <br>
-<button class="submit submit-intro" type="submit">Submit</button>
+          <div class="inputs">
+            <label for="user-name-form">What's your name?</label>
+            <input type="text" class="user-name-form" id="user-name-form" placeholder="Name">
+            <br>
+            <label for="user-question-form">Your question:</label>
+            <textarea name="user-question-form" id="user-question-form" class="user-question-form" placeholder="Your question."
+              cols="30" rows="5"></textarea>
+          </div>
+          <div class="submit-form">
+            <button class="btn btn-submit" type="submit">Submit</button>
+          </div>
         </form>
       </div>
     </section>
@@ -27,12 +39,15 @@
         <div class="greeting">
         </div>
         <div class="colour-selection">
-
+        </div>
+        <div class="first-array-selection">
+          
         </div>
       </div>
     </section>
   </main>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="scripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
+
 </html>
