@@ -1,5 +1,13 @@
 @import "partials/setup";
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
 .wrapper{
   display:flex;
   flex-direction: column;
@@ -44,4 +52,15 @@ background-color: #977dba;
   width:100px;
   height:100px;
   margin:10px;
+}
+
+.first-array-selection,
+.second-array-selection {
+  display:flex;
+}
+
+.first-array,
+.second-array {
+font-size: 5rem;
+margin: 0 50px;
 }

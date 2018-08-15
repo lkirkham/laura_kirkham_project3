@@ -85,15 +85,15 @@ $(function () {
     }
   ]
 
-    // put all of the colors into buttons on the page
-    const createColouredDots = function () {
-      colours.forEach((colour) => {
-        let colourClass = colour.cClass;
-        console.log(colourClass);
-        //add the html that includes the colours class as well as a data attribute containing the colour's name.
-        $('.colour-selection').append(`<div class="colour-swatch ${colourClass}" data-colour="${colour.colourName}"></div>`);
-      }); //these brackets are for the colours.forEach(colour) function.
-    } // this bracket closes the createColouredDots function
+  // put all of the colors into buttons on the page
+  const createColouredDots = function () {
+    colours.forEach((colour) => {
+      let colourClass = colour.cClass;
+      console.log(colourClass);
+      //add the html that includes the colours class as well as a data attribute containing the colour's name.
+      $('.colour-selection').append(`<div class="colour-swatch ${colourClass}" data-colour="${colour.colourName}"></div>`);
+    }); //these brackets are for the colours.forEach(colour) function.
+  } // this bracket closes the createColouredDots function
 
 
 
@@ -103,29 +103,31 @@ $(function () {
   //when submit is pressed, values for both of the above variables are stored
 
   const getNameAndQuestion = function () {
-  $('form').on('submit', function (event) {
-    event.preventDefault();
-    // console.log('it worked');
+    $('form').on('submit', function (event) {
+      event.preventDefault();
+      // console.log('it worked');
 
-    //storing value for the name entered by the user
-    let userName = $('.user-name-form').val();
-    // console.log(userName);
+      //storing value for the name entered by the user
+      let userName = $('.user-name-form').val();
+      // console.log(userName);
 
-    //storing balue for the question entered by the user
-    let userQuestion = $('.user-question-form').val();
-    // console.log(userQuestion);
+      //storing balue for the question entered by the user
+      let userQuestion = $('.user-question-form').val();
+      // console.log(userQuestion);
 
-    //the users question is repeted back to them in the form of a string at the top of the section
-    // turn the user inputs into into html
-    const userNameHtml = `<h2 class="user-name">${userName}, you asked: </h2>`;
-    const userQuestionHtml = `<h2 class="user-question">${userQuestion}</h2>`;
+      //the users question is repeted back to them in the form of a string at the top of the section
+      // turn the user inputs into into html
+      const userNameHtml = `<h2 class="user-name">${userName}, you asked: </h2>`;
+      const userQuestionHtml = `<h2 class="user-question">${userQuestion}</h2>`;
 
-    //put it in the html on the page
-    $('.greeting').append(userNameHtml);
-    $('.greeting').append(userQuestionHtml);
-    createColouredDots();
+      //put it in the html on the page
+      $('.greeting').append(userNameHtml);
+      $('.greeting').append(userQuestionHtml);
+      $('.colour-selection').append(`<h3 class="instructions">First, select a colour:</h3>`);
+    
+      createColouredDots();
 
-  }); //these brackets close the form.on(submit) event
+    }); //these brackets close the form.on(submit) event
   } //this bracket closes the getNameAndQuestion function
 
   //run the getNameAndQuestion function
@@ -141,78 +143,101 @@ $(function () {
   //run the colored dots creator function.
   // createColouredDots();
 
-// let selectedColour = "not set by user yet";
+  // let selectedColour = "not set by user yet";
 
-const selectedColourChoice = function() {
-  //user must click on the swatch of one of the four colours to select it.
-  $('.colour-selection').on('click','.colour-swatch', function () {
-    //store the users choice in a variable that holds the colour's name
-    const selectedColour = $(this).attr(`data-colour`);
-    console.log(selectedColour);
-    userColour(selectedColour);
-    //hide colours once selection has been made.
+  const selectedColourChoice = function () {
+    //user must click on the swatch of one of the four colours to select it.
+    $('.colour-selection').on('click', '.colour-swatch', function () {
+      //store the users choice in a variable that holds the colour's name
+      const selectedColour = $(this).attr(`data-colour`);
+      console.log(selectedColour);
+      userColour(selectedColour);
+      //hide colours once selection has been made.
       $('.colour-selection').hide();
-       return selectedColour;
-  })
- };
+      return selectedColour;
+    })
+  };
 
- //run the selectedColourChoiceFunction
- selectedColourChoice();
+  //run the selectedColourChoiceFunction
+  selectedColourChoice();
 
- //declare variable globally so it can be changed by the userColour function
- let colourChar= "evenOrOdd";
+  //declare variable globally so it can be changed by the userColour function
+  let colourChar = "evenOrOdd";
 
- //user colour function
- const userColour = function(colour) {
-   //determine length of function
-   const colourCharLength = colour.length;
-   if (colourCharLength % 2 === 0) {
-     console.log(`it's EVEN!!!!!`);
-     colourChar = "even"
-   } else {
-     console.log(`it's ODD!!!!!`)
-     colourChar = "odd"
-   }
-   console.log(`the colourChar = ${colourChar}`)
-   evenOrOdd(colourChar);
- };
-
-
-let showArray = " ";
-
-//the function determines what array or numbers should be shown based on whether or not 
- const evenOrOdd = function(ColourChar) {
-   if (ColourChar === "even") {
-console.log('even matches - show array1')
-showArray = array1.forEach((item) => {
-  $('.first-array-selection').append(`<p class="first-array first-array-even">${item.numberName}</p>`);
-})} 
-
-else if (ColourChar === "odd") {
-console.log('doesn not match - show array2')
-showArray = array2.forEach((item) => {
-      $('.first-array-selection').append(`<p class="first-array first-array-odd">${item.numberName}</p>`);
-
-})}}//for evenOrOdd function
+  //user colour function
+  const userColour = function (colour) {
+    //determine length of function
+    const colourCharLength = colour.length;
+    if (colourCharLength % 2 === 0) {
+      console.log(`it's EVEN!!!!!`);
+      colourChar = "even"
+    } else {
+      console.log(`it's ODD!!!!!`)
+      colourChar = "odd"
+    }
+    console.log(`the colourChar = ${colourChar}`)
+    evenOrOdd(colourChar);
+  };
 
 
+  let showArray = " ";
 
-/*
-//the users question is repeted back to them in the form of a string at the top of the section
-// turn the user inputs into into html
-const userNameHtml = `<h2 class="user-name">${userName}, you asked: </h2>`;
-const userQuestionHtml = `<h2 class="user-question">${userQuestion}</h2>`;
+  //the function determines what array or numbers should be shown based on whether or not 
+  const evenOrOdd = function (ColourChar) {
+    $('.first-array-selection').append(`<h3 class="instructions">Now, select a number:</h3>`);
+    if (ColourChar === "even") {
+      console.log('even matches - show array1')
+      showArray = array1.forEach((item) => {
+        $('.first-array-selection').append(`<p class="first-array first-array-even">${item.numberName}</p>`);
+      })
+    } else if (ColourChar === "odd") {
+      console.log('doesn not match - show array2')
+      showArray = array2.forEach((item) => {
+        $('.first-array-selection').append(`<p class="first-array first-array-odd">${item.numberName}</p>`);
+      })
+    }
+  } //for evenOrOdd function
 
-//put it in the html on the page
-$('.greeting').append(userNameHtml);
-$('.greeting').append(userQuestionHtml);
-*/
 
-  // - array1: [1,2,5,6]
-  // - array2: [3,4,7,8]
-  //the fortune teller always starts with array 1. If the character length of the colour is odd, the user will be presented with array2.
-  // If the character length of the colour is even, the user will be presented with array1.
-  //the user selects a number from the array they are presented with. the paper fortune teller then alternates arrays as many times as the number selected.
+  //the user selects a number from the array they are presented with.
+
+  const selectedFirstNumberChoice = function () {
+    //user must click on the number to select it.
+    $('.first-array-selection').on('click', '.first-array', function () {
+      //store the users choice in a variable that holds the number's value
+      let selectedFirstNumber = $(this.innerHTML);
+      selectedFirstNumber = selectedFirstNumber.selector;
+      console.log(selectedFirstNumber);
+      showSecondRoundOfArrays(selectedFirstNumber);
+      //hide first number array once selection has been made.
+      $('.first-array-selection').hide();
+      return selectedFirstNumber;
+    })
+  };
+
+  selectedFirstNumberChoice();
+
+  //if the number is even, show the same array. If the number is odd, show the other array.
+  const showSecondRoundOfArrays = function (userFirstNumberString) {
+    // convert the string to a number so it can be evaluated
+      let userFirstNumber = parseInt(userFirstNumberString);
+      // console.log(userFirstNumber);
+      if (userFirstNumber === 1 || userFirstNumber === 5 || userFirstNumber === 4 || userFirstNumber === 8) {
+          console.log(`you're going to see array2`);
+          showArray = array2.forEach((item) => {
+            $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
+          })
+      } else {
+        //show array1
+        console.log(`you're going to see array1`)
+        showArray = array1.forEach((item) => {
+              $('.second-array-selection').append(`<p class="second-array">${item.numberName}</p>`);
+      })
+  }
+}
+
+
+
   //if starting on array1 and the selected number is even, present array1 again. if starting on array1 and the selected number is off, present array 2.
   //if starting on array2 and the selected number is even, present array2 again. if starting on array1 and the selected number is off, present array 1.
   //user selects a number from the presented array. this number retrieves the property "answer" associated with it and returns it to the user.
