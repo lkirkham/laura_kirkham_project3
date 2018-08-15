@@ -1,1 +1,28 @@
 @import "partials/setup";
+
+.colour-selection{
+display:flex;
+}
+
+.colour-magenta{
+background-color: #e94e9c;
+}
+
+.colour-green {
+background-color: #d9e01e;
+}
+
+.colour-teal {
+background-color: #54c4c6;
+}
+
+.colour-purple {
+background-color: #977dba;
+}
+
+.colour-swatch{
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  margin:10px;
+}

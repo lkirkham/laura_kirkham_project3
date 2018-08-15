@@ -11,32 +11,32 @@ $(function () {
 
 const colours = [
   {
-    colorName: `magenta`,
+    colourName: `magenta`,
     evenNumber: false,
     oddNumber: true,
     hex: `#e94e9c`,
-    colorClass: `.color-magenta`
+    cClass: `colour-magenta`
   },
   {
-    colorName: `green`,
+    colourName: `green`,
     evenNumber: false,
     oddNumber: true,
     hex: `#d9e01e`,
-    colorClass: `.color-green`
+    cClass: `colour-green`
   },
  {
-    colorName: `teal`,
+    colourName: `teal`,
     evenNumber: true,
     oddNumber: false,
     hex: `#54c4c6`,
-    colorClass: `.color-teal`
+    cClass: `colour-teal`
   },
   {
-    colorName: `purple`,
+    colourName: `purple`,
     evenNumber: true,
     oddNumber: false,
     hex: `#977dba`,
-    colorClass: `.color-purple`
+    cClass: `colour-purple`
   },
 ]
 
@@ -130,15 +130,16 @@ $('form').on('submit', function(event){
 
 //the paperfortune teller appears. the user will be presented with three rounds of options to narrow down their fortune.
 //for the first round, the user is presented with a choice of four colors to choose from.
-//user must click on the swatch of one of the four colours to select it.
 
 
     // put all of the colors into buttons on the page
-    colours.forEach((color) => {
-      $('.movieGenres').append(`<button class="color-swatch"></button>`)
-    });
+    colours.forEach((colour) => {
+      let colourClass = colour.cClass;
+      console.log(colourClass);
+      $('.colour-selection').append(`<div class="colour-swatch ${colourClass}"></div>`)
+    });//these brackets are for the colours.forEach(colour) function.
 
-
+//user must click on the swatch of one of the four colours to select it.
 
 
 
