@@ -8,6 +8,21 @@ body {
   font-size: 1.6rem;
 }
 
+h1 {
+  font-size: 12rem;
+  color: #fff;
+  text-transform: uppercase;
+  // font-family: 'Barrio', cursive;
+  font-family: 'Schoolbell', cursive;
+  line-height:1;
+};
+
+.small-heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: Arial;
+}
+
 .wrapper{
   display:flex;
   flex-direction: column;
@@ -17,9 +32,11 @@ body {
 }
 
 .intro {
-  height:50vh;
-  // background-image: url('../assets/bg-pattern-small.jpg');
-  // background-repeat: repeat;
+  height:100vh;
+  background-image: url('../assets/lk-bg-800x800-dark.jpg');
+  background-repeat: repeat;
+  text-align:center;
+
 }
 
 form {

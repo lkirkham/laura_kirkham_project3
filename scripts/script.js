@@ -131,14 +131,18 @@ $(function () {
       let userQuestion = $('.user-question-form').val();
       // console.log(userQuestion);
 
+      //ensure that the html being added below, doesnt continously add to the page when the submit button is pressed.
+      $('.greeting').empty();
+      $('.colour-selection').empty();
+
       //the users question is repeted back to them in the form of a string at the top of the section
       // turn the user inputs into into html
       const userNameHtml = `<h2 class="user-name">${userName}, you asked: </h2>`;
       const userQuestionHtml = `<h2 class="user-question">${userQuestion}</h2>`;
 
       //put it in the html on the page
-      $('.greeting').append(userNameHtml);
-      $('.greeting').append(userQuestionHtml);
+      $('.greeting').html(userNameHtml);
+      $('.greeting').html(userQuestionHtml);
       $('.colour-selection').append(`<h3 class="instructions">First, select a colour:</h3>`);
 
       createColouredDots();

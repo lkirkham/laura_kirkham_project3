@@ -138,6 +138,18 @@ html {
 body {
   font-size: 1.6rem; }
 
+h1 {
+  font-size: 12rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Schoolbell', cursive;
+  line-height: 1; }
+
+.small-heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: Arial; }
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,7 +165,10 @@ body {
   width: 1080px; }
 
 .intro {
-  height: 50vh; }
+  height: 100vh;
+  background-image: url("../assets/lk-bg-800x800-dark.jpg");
+  background-repeat: repeat;
+  text-align: center; }
 
 form {
   display: -webkit-box;
