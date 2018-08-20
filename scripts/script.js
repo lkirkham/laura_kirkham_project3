@@ -251,11 +251,10 @@ $('header').on('click', '.inside-SVG', function () {
     //user must click on the number to select it.
     $('.first-array-selection').on('click', '.num-container', function () {
       //store the users choice in a variable that holds the number's value
-      let selectedFirstNumber = $(this.innerHTML);
+      let selectedFirstNumber = this.innerText;
       // selectedFirstNumber = selectedFirstNumber;
-            console.log(`LOOK HERE WHAT IS THIS ? ${this.innerHTML}`);
-
-      console.log(`LOOK HERE${selectedFirstNumber}`);
+      console.log(this.innerText);
+      //run function to produce second round of arrays based on the choice of the first round of arrays
       showSecondRoundOfArrays(selectedFirstNumber);
       //hide first number array once selection has been made.
       $('.first-array-selection').hide();
