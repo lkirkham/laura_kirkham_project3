@@ -671,9 +671,7 @@ form .teal-circle {
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
   .wrapper {
-    width: 480px; }
-  .cootie-catcher {
-    width: 300px; }
+    width: 470px; }
   h1 {
     font-size: 6rem; }
   .instructions {
@@ -717,7 +715,7 @@ form .teal-circle {
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .intro .wrapper {
-    padding-top: 50px; }
+    padding-top: 40px; }
   .wrapper {
     width: 300px; }
   .cootie-catcher {
