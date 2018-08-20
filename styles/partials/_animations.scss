@@ -1,0 +1,27 @@
+@keyframes jiggle {
+  0% {transform: translate(0, 0);}
+  20% {transform: translate(-10px, 0);}
+  60% {transform: translate(10px, 0);}
+  100% {transform: translate(0, 0);}
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  20% {transform: rotate(360deg);}
+}
+
+@keyframes colourFlashFill {
+  0% {fill: #54c4c6;}
+  20% {fill: #e94e9c;}
+  60% {fill: #d9e01e;}
+  80% {fill: #977dba;}
+  100% {fill: #54c4c6;}
+}
+
+@keyframes colourFlashStroke {
+  0% {stroke: #54c4c6;}
+  20% {stroke: #e94e9c;}
+  60% {stroke: #d9e01e;}
+  80% {stroke: #977dba;}
+  100% {stroke: #54c4c6;}
+}
